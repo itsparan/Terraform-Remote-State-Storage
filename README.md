@@ -11,19 +11,8 @@ description: Implement Terraform Remote State Storage with AWS S3 and DynamnoDB
 - Understand about **State Locking** and its advantages
 - Create DynamoDB Table and  implement State Locking by enabling the same in Terraform backend configuration
 
-[![Image](https://stacksimplify.com/course-images/terraform-remote-state-storage-1.png "Terraform on AWS EKS")](https://stacksimplify.com/course-images/terraform-remote-state-storage-1.png)
 
-[![Image](https://stacksimplify.com/course-images/terraform-remote-state-storage-2.png "Terraform on AWS EKS")](https://stacksimplify.com/course-images/terraform-remote-state-storage-2.png)
-
-[![Image](https://stacksimplify.com/course-images/terraform-remote-state-storage-3.png "Terraform on AWS EKS")](https://stacksimplify.com/course-images/terraform-remote-state-storage-3.png)
-
-[![Image](https://stacksimplify.com/course-images/terraform-remote-state-storage-4.png "Terraform on AWS EKS")](https://stacksimplify.com/course-images/terraform-remote-state-storage-4.png)
-
-[![Image](https://stacksimplify.com/course-images/terraform-remote-state-storage-5.png "Terraform on AWS EKS")](https://stacksimplify.com/course-images/terraform-remote-state-storage-5.png)
-
-[![Image](https://stacksimplify.com/course-images/terraform-remote-state-storage-6.png "Terraform on AWS EKS")](https://stacksimplify.com/course-images/terraform-remote-state-storage-6.png)
-
-## Pre-requisite Step
+##            Pre-requisite Step  
 
 ## Step-00: Introduction 
 1. For VPC switch Availability Zones from Static to Dynamic using Datasource `aws_availability_zones`
