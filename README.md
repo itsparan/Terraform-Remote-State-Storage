@@ -83,7 +83,7 @@ variable "vpc_availability_zones" {
 cd terraform-manifests/private-key
 chmod 400 eks-terraform-key.pem
 ```
-## Step-03: c4-01-ec2bastion-variables.tf
+## Step-03: ec2bastion-variables.tf
 ```t
 # AWS EC2 Instance Terraform Variables
 
@@ -101,7 +101,7 @@ variable "instance_keypair" {
   default = "eks-terraform-key"
 }
 ```
-## Step-04: c4-03-ec2bastion-securitygroups.tf
+## Step-04: ec2bastion-securitygroups.tf
 ```t
 # AWS EC2 Security Group Terraform Module
 # Security Group for Public Bastion Host
@@ -121,7 +121,7 @@ module "public_bastion_sg" {
 }
 ```
 
-## Step-05: c4-04-ami-datasource.tf
+## Step-05: ami-datasource.tf
 ```t
 # Get latest AMI ID for Amazon Linux2 OS
 data "aws_ami" "amzlinux2" {
@@ -363,9 +363,9 @@ Observation: We should find the file named "eks-terraform-key.pem" moved from ou
 
 
 ## Step-03: EKS Cluster: Terraform Backend Configuration
-- **File Location:** `01-ekscluster-terraform-manifests/c1-versions.tf`
+- **File Location:** `ekscluster-terraform-manifests/versions.tf`
 - [Terraform Backend as S3](https://www.terraform.io/docs/language/settings/backends/s3.html)
-- Add the below listed Terraform backend block in `Terrafrom Settings` block in `c1-versions.tf`
+- Add the below listed Terraform backend block in `Terrafrom Settings` block in `versions.tf`
 ```t
   # Adding Backend as S3 for Remote State Storage
   backend "s3" {
@@ -437,8 +437,8 @@ Observation:
 ```
 
 ## Step-07: Kubernetes Resources: Terraform Backend Configuration
-- **File Location:** `k8sresources-terraform-manifests/c1-versions.tf`
-- Add the below listed Terraform backend block in `Terrafrom Settings` block in `c1-versions.tf`
+- **File Location:** `k8sresources-terraform-manifests/versions.tf`
+- Add the below listed Terraform backend block in `Terrafrom Settings` block in `versions.tf`
 ```t
   # Adding Backend as S3 for Remote State Storage
   backend "s3" {
@@ -450,8 +450,8 @@ Observation:
     dynamodb_table = "dev-app1k8s"    
   }   
 ```
-## Step-08: c2-remote-state-datasource.tf
-- **File Location:** `k8sresources-terraform-manifests/c2-remote-state-datasource.tf`
+## Step-08: remote-state-datasource.tf
+- **File Location:** `k8sresources-terraform-manifests/remote-state-datasource.tf`
 - Update the EKS Cluster Remote State Datasource information
 ```t
 # Terraform Remote State Datasource - Remote Backend AWS S3
@@ -469,7 +469,7 @@ data "terraform_remote_state" "eks" {
 ## Step-09: Create Kubernetes Resources: Execute Terraform Commands
 ```t
 # Change Directory
-cd 02-k8sresources-terraform-manifests
+cd k8sresources-terraform-manifests
 
 # Initialize Terraform 
 terraform init
@@ -581,7 +581,7 @@ http://54.165.248.51:31280
 ## Step-16: Clean-Up
 ```t
 # Delete Kubernetes  Resources
-cd 02-k8sresources-terraform-manifests
+cd k8sresources-terraform-manifests
 terraform apply -destroy -auto-approve
 rm -rf .terraform*
 
